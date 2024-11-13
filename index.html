@@ -1,66 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Colleges in Kolhapur District</title>
-    <link rel="stylesheet" href="style.css">
+<title>Local College Information</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  /* General Styles */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    
+    background-color: #f4f4f4;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    backdrop-filter: blur(5px); 
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10; 
+    display: flex;              /* Use flexbox for navbar */
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center;        /* Center items vertically */
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Container for District Buttons */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    padding-bottom: 40px; 
+    min-height: calc(100vh - 80px);
+    margin-bottom: 48px; /* Adjust for navbar & footer heights */
+  }
+
+  /* District Buttons */
+  .district-button {
+    width: 300px; /* Larger button width */
+    height: 200px; /* Fixed height */
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden; /* Hide image overflow for rounded corners */
+    position: relative;
+    text-decoration: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+
+  .district-button:hover {
+    transform: scale(1.05);
+  }
+
+  .district-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1.1px) brightness(0.7); /* Blur and darken background */
+    transition: filter 0.3s;
+  }
+
+  .district-button:hover img {
+    filter: blur(2px) brightness(0.8); /* Less blur and brighter on hover */
+  }
+
+  .district-button h2 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 2em;
+    z-index: 2; /* Ensure text is on top */
+  }
+
+  /* Footer */
+  .footer {
+    background-color: rgba(0, 0, 0, .7); 
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    height: 52px;
+    width: 100%;
+  }
+
+  /* Media Query (Adjust as needed) */
+  @media (max-width: 360px) {
+    .district-button {
+      width: 90%; /* Adjust button width for mobile */
+    }
+
+    p{
+      font-size: 48px;
+    }
+
+    .footer-txt{
+      margin: 16px 0px 16px 0px;
+      font-size: 16px;
+    }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Engineering Colleges in Kolhapur District</h1>
-        <nav>
-            <ul>
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#colleges">Colleges List</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="navbar">
+    <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+  </div>
 
-    <main>
-        <section id="overview">
-            <h2>Overview</h2>
-            <p>Kolhapur district is home to several esteemed engineering colleges that offer a variety of undergraduate and postgraduate programs in engineering and technology. This webpage provides a list of notable institutions that cater to aspiring engineers.</p>
-        </section>
 
-        <section id="colleges">
-            <h2>List of Engineering Colleges</h2>
-            <div class="college">
-                <h3>Shivaji University, Kolhapur</h3>
-                <p>Offers a range of engineering programs with modern facilities and experienced faculty.</p>
-            </div>
-            <div class="college">
-                <h3>Government College of Engineering, Karad</h3>
-                <p>A premier engineering institution providing quality education and research opportunities.</p>
-            </div>
-            <div class="college">
-                <h3>Padm. Dr. D. Y. Patil Institute of Engineering and Technology</h3>
-                <p>Provides undergraduate and postgraduate engineering programs with excellent campus facilities.</p>
-            </div>
-            <div class="college">
-                <h3>Rajarshi Shahu College of Engineering</h3>
-                <p>Known for its strong emphasis on practical learning and industry collaborations.</p>
-            </div>
-            <div class="college">
-                <h3>Shri Sant Gajanan Maharaj College of Engineering</h3>
-                <p>Focuses on developing technical skills through innovative teaching methods.</p>
-            </div>
-            <div class="college">
-                <h3>Jawaharlal Nehru Engineering College</h3>
-                <p>Offers a variety of engineering disciplines with a commitment to excellence in education.</p>
-            </div>
-            <!-- Add more engineering colleges as needed -->
-        </section>
+  <div class="container">
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or need further information, please contact us at <a href="mailto:info@kolhapurcolleges.com">info@kolhapurcolleges.com</a>.</p>
-        </section>
-    </main>
+    
+    <div style="margin-top: 2; width: 100%; text-align: center;">
+      <p style="color: black; font-size: 60px; font-family:sans; margin: 0px;">
+        Choose your university wisely
+      </p>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Engineering Colleges in Kolhapur District. All Rights Reserved.</p>
-    </footer>
+    <a href="index2.html" class="district-button"> <img src="https://www.gosahin.com/go/p/i/1563698283_maharajas-palace-kolhapur1.jpg" alt="Kolhapur"><h2>Kolhapur</h2></a>
+    <a href="index3.html" class="district-button">
+      <img src="https://th.bing.com/th/id/OIP.9hcP-4D0Fsz5onK29g0YIgHaE8?rs=1&pid=ImgDetMain" alt="Sangli">
+      <h2>Sangli</h2>
+    </a>
+    <a href="satara.html" class="district-button">
+      <img src="https://th.bing.com/th/id/R.745f52205f1417e2b2db91283e5aad62?rik=tQVdYMFUL%2bKotA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-YWpZbnMMx2k%2fU0aEEl8RXXI%2fAAAAAAAAbDk%2ftESNHvmVgdk%2fs1600%2fwai.JPG&ehk=0btGWyjOI1dDI8e0JZIxYW4zf08gbCNRQ33zD%2fY%2bqZs%3d&risl=&pid=ImgRaw&r=0" alt="Satara">
+      <h2>Satara</h2>
+    </a>
+  </div>
+
+  <div class="footer">
+    <p class="footer-txt">© 2023 College Info Website</p>
+  </div>
+
 </body>
 </html>
