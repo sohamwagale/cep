@@ -52,19 +52,21 @@ main {
 .college-link {
     display: inline-block;
     text-decoration: none;
-    background-color: hsl(210, 63%, 46%);
-    color: #fff;
-    font-size: 1rem;
+    background-color: hsl(0, 0%, 100%);
+    color: #0566c0;
+    font-size: 20px;
     font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 16px 24px;
+    border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s;
 }
 
 .college-link:hover {
-    background-color: #333;
-    color: hsl(210, 63%, 46%);
+    
+    transform: scale(1.03) ;
+    color: hsl(0, 0%, 0%);
 }
 
 /* Footer Styling */
@@ -72,8 +74,11 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
+    position: fixed;
+    width: 100%;
     padding: 15px 0;
     margin-top: 30px;
+    bottom: 0;
 }
 
 footer p {
