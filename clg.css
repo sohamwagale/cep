@@ -14,11 +14,13 @@ body {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
+    padding-top: 20px;
 }
 
-.all-head{
+.all{
     position: fixed;
     width: 100%;
+    top: 0%;
 }
 
 .header-right{
@@ -71,7 +73,7 @@ nav ul li a:hover {
 
 main {
     padding: 2rem;
-    padding-top: 224px;
+    padding-top: var(--all-height,100px);
     max-width: 1200px;
     margin: auto;
 }
@@ -99,7 +101,7 @@ section {
 }
 
 .gallery img:hover{
-    transform: scale(1.1);
+    transform: scale(1.04);
 } 
 
 footer {
