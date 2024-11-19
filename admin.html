@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="rf.css">
+    <style>
+                body {
+                    margin-top: 40px;
+                    margin-bottom: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            min-width: 400px;
+            margin-left:25%;
+            margin-right:25%;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            padding: 0px 15px 0 15px;
+        }
+
+
+        input[type=text], input[type=password] {
+            width: 97%;
+            padding: 10px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #F5F5F5;
+        
+        }
+        
+        hr{
+            border: 1px solid #e6e6e6;
+            margin-bottom: 5px;
+        }
+
+        .registerbutton{
+            background-color: rgb(58, 136, 252) ;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+            width: 100%;    
+        }
+
+    </style>
+</head>
+<body>
+  
+        <form action="action.php">
+            <h1>Add College</h1>
+            <p>Please fill in this form to add college to the website.</p>
+            <hr>
+            
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter College Name" name="name" required><br>
+            
+            <label for="about"><b>About.</b></label>
+            <input type="text" placeholder="Enter College description" name="number" required><br>
+            
+            <label for="facilities"><b>Facilities</b></label> 
+            <input type="text" placeholder="Enter the college facilities available" name="email" required><br>
+    
+            <label for="courses"><b>Courses</b></label>
+            <input type="text" placeholder="Enter the Courses available" name="psw" required><br>
+    
+            <label for="Contact"><b>Contact</b></label>
+            <input type="text" placeholder="Enter the college contact number" name="psw-repeat" required><br>
+            <hr>
+            <p>By submitting you agree to add College to our Website<br> <a href="#">Terms & Privacy</a>.</p>
+    
+            <button id="regbutton"   type="submit" class="registerbutton">Submit</button>
+            
+            
+        </form>
+
+        
+</body>
+
+
+</html>
