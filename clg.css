@@ -21,6 +21,7 @@ body {
     position: fixed;
     width: 100%;
     top: 0%;
+    background-color:#0056A6;
 }
 
 .header-right{
@@ -30,8 +31,8 @@ body {
 }
 
 header {
-    background-color:#f4f4f4;
-    color: #0056a6;
+    background-color:#0056A6;
+    color: #dfdfdf;
     padding: 2rem;
     text-align: start;
     width: 1200px;
@@ -46,7 +47,7 @@ header {
 }
 
 nav {
-    background: #c5e9f7;
+    background: #333333;
     color: #ffffff;
     padding: 1rem;
     display: flex;
@@ -63,7 +64,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #003c97;
+    color: #ffffff;
     text-decoration: none;
 }
 
