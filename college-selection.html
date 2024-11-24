@@ -1,147 +1,221 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>College Selection</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<style>
-			/* General Styles */
-			body {
-				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-				margin: 0;
-				background-color: #72afff;
-			}
+<head>
+    <title>College Selection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-light: #ecf0f1;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
 
-			/* Navbar */
-			.navbar {
-				background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
-				backdrop-filter: blur(5px); 
-				padding: 15px 0;
-				position: fixed;
-				width: 100%;
-				z-index: 10; 
-				display: flex;              /* Use flexbox for navbar */
-				justify-content: space-around; /* Distribute items evenly */
-				align-items: center;        /* Center items vertically */
-			}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-			.navbar a {
-				color: white;
-				text-decoration: none;
-				padding: 8px 16px;
-				border-radius: 5px;
-				transition: background-color 0.3s;
-			}
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
 
-			.navbar a:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-			}
+        /* Navbar Styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-			/* Container for District Buttons */
-			.container {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				align-items: center;
-				padding: 80px 20px;
-				padding-bottom: 40px; 
-				min-height: calc(100vh - 80px);
-				margin-bottom: 48px; /* Adjust for navbar & footer heights */
-			}
+        .nav-brand {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-			/* District Buttons */
-			.district-button {
-				width: 300px; /* Larger button width */
-				height: 200px; /* Fixed height */
-				margin: 20px;
-				border-radius: 10px;
-				overflow: hidden; /* Hide image overflow for rounded corners */
-				position: relative;
-				text-decoration: none;
-				box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-				transition: transform 0.3s;
-			}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
 
-			.district-button:hover {
-				transform: scale(1.05);
-			}
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
 
-			.district-button img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				filter: blur(1.1px) brightness(0.7); /* Blur and darken background */
-				transition: filter 0.3s;
-			}
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
 
-			.district-button:hover img {
-				filter: blur(2px) brightness(0.8); /* Less blur and brighter on hover */
-			}
+        /* Main Content */
+        .container {
+            padding: 7rem 2rem 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-			.district-button h2 {
-				position: absolute;
-				bottom: 20px;
-				left: 20px;
-				color: white;
-				font-size: 2em;
-				z-index: 2; /* Ensure text is on top */
-			}
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+        }
 
-			/* Footer */
-			.footer {
-				background-color: rgba(0, 0, 0, .7); 
-				color: white;
-				text-align: center;
-				padding: 10px 0;
-				position: fixed;
-				bottom: 0;
-				height: 52px;
-				width: 100%;
-			}
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-			/* Media Query (Adjust as needed) */
-			@media (max-width: 360px) {
-				.district-button {
-					width: 90%; /* Adjust button width for mobile */
-				}
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
 
-				p {
-					font-size: 48px;
-				}
+        .districts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
 
-				.footer-txt {
-					margin: 16px 0px 16px 0px;
-					font-size: 16px;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<div class="navbar">
-			<a href="#home"><i class="fa-solid fa-house"></i> Home</a>
-			<a href="#contact"><i class="fa-solid fa-envelope"></i> Contact Us</a>
-		</div>
-		<div class="container">
-			<div style="margin-top: 2; width: 100%; text-align: center;">
-				<p style="color: rgb(253, 253, 253); font-size: 60px; font-family:sans; margin: 0px;">
-					Select the District
-				</p>
-			</div>
-			<a href="kop.html" class="district-button"> 
-				<img src="https://www.gosahin.com/go/p/i/1563698283_maharajas-palace-kolhapur1.jpg" alt="Kolhapur">
-				<h2>Kolhapur</h2>
-			</a>
-			<a href="san.html" class="district-button">
-				<img src="https://th.bing.com/th/id/OIP.9hcP-4D0Fsz5onK29g0YIgHaE8?rs=1&pid=ImgDetMain" alt="Sangli">
-				<h2>Sangli</h2>
-			</a>
-			<a href="sat.html" class="district-button">
-				<img src="https://th.bing.com/th/id/R.745f52205f1417e2b2db91283e5aad62?rik=tQVdYMFUL%2bKotA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-YWpZbnMMx2k%2fU0aEEl8RXXI%2fAAAAAAAAbDk%2ftESNHvmVgdk%2fs1600%2fwai.JPG&ehk=0btGWyjOI1dDI8e0JZIxYW4zf08gbCNRQ33zD%2fY%2bqZs%3d&risl=&pid=ImgRaw&r=0" alt="Satara">
-				<h2>Satara</h2>
-			</a>
-		</div>
-		<div class="footer">
-			<p class="footer-txt">© 2023 College Info Website</p>
-		</div>
-	</body>
+        .district-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .district-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .district-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .district-card:hover .district-image {
+            transform: scale(1.1);
+        }
+
+        .district-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem;
+            color: var(--text-light);
+        }
+
+        .district-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .district-description {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            color: var(--text-light);
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .districts-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .district-card {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="nav-brand">College Selection</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="header">
+            <h1>Select Your District</h1>
+            <p>Explore colleges and educational opportunities in your region</p>
+        </header>
+
+        <div class="districts-grid">
+            <a href="kop.html" class="district-card">
+                <img class="district-image" src="https://cdn.britannica.com/58/124458-050-DDC9106D/New-Palace-Kolhapur-Maharashtra-India.jpg" alt="Kolhapur">
+                <div class="district-overlay">
+                    <h2 class="district-title">Kolhapur</h2>
+                    <p class="district-description">Explore educational institutions in the historic city of Kolhapur</p>
+                </div>
+            </a>
+
+            <a href="san.html" class="district-card">
+                <img class="district-image" src="https://res.cloudinary.com/chasset/c_fill,e_improve,f_webp,h_480,w_720/hbimages/desktop/1502512991592-Sangli-Fort.jpg" alt="Sangli">
+                <div class="district-overlay">
+                    <h2 class="district-title">Sangli</h2>
+                    <p class="district-description">Discover academic excellence in the heart of Maharashtra</p>
+                </div>
+            </a>
+
+            <a href="sat.html" class="district-card">
+                <img class="district-image" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/53/4a/1e/fort-watch-tower.jpg?w=1400&h=1400&s=1" alt="Satara">
+                <div class="district-overlay">
+                    <h2 class="district-title">Satara</h2>
+                    <p class="district-description">Find your perfect college in the cultural hub of Satara</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 College Info Website. All rights reserved.</p>
+    </footer>
+</body>
 </html>
